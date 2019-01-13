@@ -12,7 +12,8 @@ module.exports = function plugin() {
   const web = flow();
   return {
     generateBundle(opts, bundle) {
-      const table = [];
+      const links = [];
+      const modules = {};
       Object.keys(bundle).forEach((key) => {
         Object.keys(bundle[key].modules).forEach((mkey) => {
           if (mkey[0] === '\u0000') {
@@ -24,16 +25,23 @@ module.exports = function plugin() {
           }
           const mInfo = this.getModuleInfo(mkey);
 
+          modules[normalizePath(mInfo.id)] = {
+            size: m.renderedLength,
+          };
+
           mInfo.importedIds.forEach((im) => {
             if (im[0] !== '\u0000') {
-              table.push([
+              links.push([
                 normalizePath(mInfo.id),
                 normalizePath(im),
               ]);
             }
           });
         });
-        web.update(JSON.stringify(table));
+        web.update(JSON.stringify({
+          modules,
+          links,
+        }));
       });
     },
   };
