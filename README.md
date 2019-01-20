@@ -1,4 +1,4 @@
-# rollup-plugin-deps
+# rollup-plugin-dependency-flow
 
 This is a rollup plugin that can help you visualize the dependencies between files.
 
