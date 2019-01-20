@@ -2,7 +2,9 @@
   "name": "rollup-plugin-dependency-flow",
   "version": "0.2.0",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "rollup-plugin"
+  ],
   "author": "miralemd",
   "license": "MIT",
   "main": "plugin.js",
@@ -15,6 +17,6 @@
     "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
-    "dependency-flow": "^0.2.0"
+    "dependency-flow": "^0.3.0"
   }
 }
