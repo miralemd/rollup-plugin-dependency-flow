@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-dependency-flow",
-  "version": "0.2.0",
-  "description": "",
+  "version": "0.3.0",
+  "description": "Visualize rollup module dependency flow",
   "keywords": [
     "rollup-plugin"
   ],
