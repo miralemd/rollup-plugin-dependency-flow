@@ -34,9 +34,11 @@ module.exports = function plugin(build = {}, serve = false) {
             return;
           }
           const m = bundle[key].modules[mkey];
-          if (!m.renderedLength) {
-            return;
-          }
+
+          // keep the module to make it possible to track import paths
+          // if (!m.renderedLength && !m.renderedExports.length) {
+          //   return;
+          // }
           const mInfo = this.getModuleInfo(mkey);
 
           modules[normalizePath(mInfo.id)] = {
